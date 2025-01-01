@@ -20,16 +20,20 @@ git config --global user.email "kris@example.com"
 
 sudo dpkg -i winter_1.0.0_amd64.deb
 
-cat > /etc/systemd/system/winter.service  <<EOF
-[Unit]
-Description=Winter Application
 
-[Service]
-ExecStart=/usr/local/lib/winter/winter
-Restart=always
+mkdir -p ~/.config/autostart
 
-[Install]
-WantedBy=multi-user.target
+cat > ~/.config/autostart/winter.desktop  <<EOF
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/lib/winter/winter
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name[en_US]=HSF
+Name=HSF
+Comment[en_US]=Henjou Smart Factory
+Comment=恒久智慧工厂
+
 EOF
 
-systemctl enable winter.service
