@@ -1,14 +1,13 @@
 #!/bin/bash
 
-bios_id=$(sudo dmidecode -s system-serial-number)
+# bios_id=$(sudo dmidecode -s system-serial-number)
 
-# Print greeting
-echo "initializing on $bios_id"
+sudo cp logo_start.png 
 
-# Load environment variables
-if [ -e ".env" ]; then
-  source .env
-else
-  echo ".env file does not exist."
-  exit 1
-fi
+sudo apt update
+sudo apt install -y vim git
+git config --global user.name "kris"
+git config --global user.email "kris@example.com"
+
+
+
